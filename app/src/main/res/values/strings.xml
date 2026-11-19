@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Recordatorios</string>
+    <string name="titulo_pantalla">Mis recordatorios</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="sin_recordatorios">No hay recordatorios con este estado</string>
+    <string name="resumen_total">Total</string>
+    <string name="resumen_pendientes">Por hacer</string>
+    <string name="resumen_categorias">Categorías</string>
+    <string name="prioridad">Prioridad</string>
+    <string name="fecha_limite">Fecha límite</string>
+    <string name="sin_fecha">Sin fecha límite</string>
+</resources>
