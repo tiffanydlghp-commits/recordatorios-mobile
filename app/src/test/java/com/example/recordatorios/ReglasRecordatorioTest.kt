@@ -9,6 +9,8 @@ import com.example.recordatorios.validation.crearRecordatorio
 import com.example.recordatorios.validation.crearRecordatorioOrNull
 import com.example.recordatorios.validation.esFechaValida
 import com.example.recordatorios.validation.esTituloValido
+import com.example.recordatorios.validation.validarFormulario
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -66,5 +68,40 @@ class ReglasRecordatorioTest {
         val datos = DatosSimulados.recordatorios
         assertEquals(2, datos.filtrarPorEstado(EstadoRecordatorio.Completado("")).size)
         assertEquals(3, datos.filtrarPorPrioridad(Prioridad.Alta).size)
+    }
+
+    // ---------- Actividad 2: formulario ----------
+
+    private val permitidas = DatosSimulados.categoriasUnicas
+
+    @Test
+    fun formularioValido_noTieneErrores() {
+        val errores = validarFormulario("Estudiar", "", DatosSimulados.ESTUDIOS, Prioridad.Media, permitidas)
+        assertFalse(errores.hayErrores)
+    }
+
+    @Test
+    fun tituloConEspacios_seValidaDespuesDeTrim() {
+        val errores = validarFormulario("   ab   ", "", DatosSimulados.ESTUDIOS, Prioridad.Media, permitidas)
+        assertNotNull(errores.titulo)
+    }
+
+    @Test
+    fun descripcionDeMasDe200_esInvalida() {
+        val errores = validarFormulario("Estudiar", "x".repeat(201), DatosSimulados.ESTUDIOS, Prioridad.Media, permitidas)
+        assertNotNull(errores.descripcion)
+    }
+
+    @Test
+    fun categoriaFueraDeLasOpciones_esInvalida() {
+        val otra = com.example.recordatorios.domain.Categoria(99, "Otra")
+        val errores = validarFormulario("Estudiar", "", otra, Prioridad.Media, permitidas)
+        assertNotNull(errores.categoria)
+    }
+
+    @Test
+    fun sinPrioridad_esInvalido() {
+        val errores = validarFormulario("Estudiar", "", DatosSimulados.ESTUDIOS, null, permitidas)
+        assertNotNull(errores.prioridad)
     }
 }

@@ -3,10 +3,25 @@
     <string name="titulo_pantalla">Mis recordatorios</string>
     <string name="filtro_todos">Todos</string>
     <string name="sin_recordatorios">No hay recordatorios con este estado</string>
+    <string name="sin_recordatorios_aun">Todavía no existen recordatorios</string>
+    <string name="cargando_recordatorios">Cargando recordatorios…</string>
+    <string name="cargando_detalle">Cargando detalle…</string>
+    <string name="crear_recordatorio">Crear recordatorio</string>
+    <string name="nuevo_recordatorio">Nuevo recordatorio</string>
     <string name="resumen_total">Total</string>
     <string name="resumen_pendientes">Por hacer</string>
     <string name="resumen_categorias">Categorías</string>
     <string name="prioridad">Prioridad</string>
     <string name="fecha_limite">Fecha límite</string>
     <string name="sin_fecha">Sin fecha límite</string>
+    <string name="campo_titulo">Título *</string>
+    <string name="ayuda_titulo">Mínimo 4 caracteres</string>
+    <string name="campo_descripcion">Descripción (opcional)</string>
+    <string name="guardar">Guardar</string>
+    <string name="guardando">Guardando…</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="completa_campos">Completa los campos obligatorios (*) para guardar</string>
+    <string name="detalle">Detalle</string>
+    <string name="volver">Volver</string>
+    <string name="no_encontrado">No se encontró el recordatorio</string>
 </resources>
